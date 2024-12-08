@@ -1,0 +1,70 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>{{ title }}</h1>
+        <p>{{ description }}</p>
+
+        <!-- Tabla de clientes -->
+        <h2>Lista de Clientes</h2>
+        <table border="1" cellpadding="5">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Correo</th>
+                    <th>Teléfono</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for cliente in clientes %}
+                    <tr>
+                        <td>{{ cliente.id }}</td>
+                        <td>{{ cliente.nombre }}</td>
+                        <td>{{ cliente.correo }}</td>
+                        <td>{{ cliente.telefono }}</td>
+                        <td>
+                            <a href="{% url 'editar_cliente' cliente.id %}">Editar</a> |
+                            <a href="{% url 'eliminar_cliente' cliente.id %}" onclick="return confirm('¿Estás seguro de que quieres eliminar este cliente?');">Eliminar</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <br>
+
+        <!-- Formulario para agregar un nuevo cliente -->
+        <h2>Agregar Cliente</h2>
+        <form method="POST" action="{% url 'agregar_cliente' %}" class="form-cliente">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required class="form-input">
+            </div>
+
+            <div class="form-group">
+                <label for="correo">Correo:</label>
+                <input type="email" id="correo" name="correo" required class="form-input">
+            </div>
+
+            <div class="form-group">
+                <label for="telefono">Teléfono:</label>
+                <input type="tel" id="telefono" name="telefono" required class="form-input">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Agregar Cliente</button>
+        </form>
+    </div>
+</body>
+</html>
