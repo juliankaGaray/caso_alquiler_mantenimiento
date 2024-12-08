@@ -232,3 +232,19 @@
 @import './sidebar';
 @import './layouts';
 @import './vertical/vertical-wrapper';
+/* Asegura que todo el texto tenga color blanco */
+body {
+  color: white;
+}
+
+/* Si necesitas que los enlaces también sean blancos */
+a {
+  color: white;
+}
+
+/* Si tienes otros elementos específicos que también necesitan color blanco, puedes añadirlos */
+h1, h2, h3, h4, h5, h6, p, li {
+  color: white;
+}
+
+

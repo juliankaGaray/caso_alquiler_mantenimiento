@@ -161,20 +161,20 @@
 
     
     <main><br>
-        <h1>Bienvenido al sistema de Alquieres y Mantenimiento </h1>
-        <h2></h2>
-            <p>aca podras gestionar todo para tu proyecto de filmacion cinematográfica</p>
+        <h1 style="color:white;" >Bienvenido al sistema de Alquieres y Mantenimiento </h1>
+        
+            <p style="color:white;" >aca podras gestionar todo para tu proyecto de filmacion cinematográfica</p>
             <div class="container mt-5">
-                <h2>Iniciar sesión</h2>
+                <h2 style="color:white;">Iniciar sesión</h2>
                 <form method="POST">
                     {% csrf_token %}
                     <div class="mb-3">
-                        <label for="username" class="form-label">Usuario</label>
-                        <input type="text" class="form-control" id="username" name="username" required>
+                        <label for="username" class="form-label" style="color:white;">Usuario</label>
+                        <input  style="color:white;" type="text" class="form-control" id="username" name="username" required>
                     </div>
                     <div class="mb-3">
-                        <label for="password" class="form-label">Contraseña</label>
-                        <input type="password" class="form-control" id="password" name="password" required>
+                        <label for="password" class="form-label" style="color:white;">Contraseña</label>
+                        <input style="color:white;" type="password" class="form-control" id="password" name="password" required>
                     </div>
                     <button type="submit" class="btn btn-primary">Ingresar</button>
                     {% if messages %}
